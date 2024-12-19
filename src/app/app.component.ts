@@ -13,4 +13,6 @@ export class AppComponent {
   title = 'angular-getting-stared';
 
   users:string[] = ['Pepe', 'Maria', 'Jose'];
+
+  books!: string[];
 }

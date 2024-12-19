@@ -2,13 +2,31 @@
 
 <table>
   <thead>
-    <th>id</th>
-    <th>name</th>
+    <tr>
+      <th>id</th>
+      <th>user</th>
+    </tr>
   </thead>
   <tbody>
     <tr *ngFor="let user of users; index as id">
       <td>{{ id + 1 }}</td>
       <td>{{ user }}</td>
+    </tr>
+  </tbody>
+  
+</table>
+
+<table *ngIf="books && books.length > 0">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>book</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books; index as id">
+      <td>{{ id + 1 }}</td>
+      <td>{{ book }}</td>
     </tr>
   </tbody>
   
