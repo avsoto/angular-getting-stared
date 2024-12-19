@@ -16,7 +16,7 @@
   
 </table>
 
-<table *ngIf="books && books.length > 0">
+<table *ngIf="books && books.length > 0; else isEmpty">
   <thead>
     <tr>
       <th>id</th>
@@ -31,3 +31,8 @@
   </tbody>
   
 </table>
+
+<ng-template #isEmpty>
+  <div>No books available</div>
+</ng-template>
+
