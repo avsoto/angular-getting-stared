@@ -1,38 +1,55 @@
-<h2>Hi {{title}}</h2>
+<button (click)="setVisible()">
+  {{visible? 'Ocultar' : 'Mostrar'}}
+</button>
 
-<table>
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>user</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users; index as id">
-      <td>{{ id + 1 }}</td>
-      <td>{{ user }}</td>
-    </tr>
-  </tbody>
+<div *ngIf="visible; else notEnable">
+  <h2>Hi {{title}}</h2>
+</div>
+
+<div *ngIf="visible">
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>user</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; index as id">
+        <td>{{ id + 1 }}</td>
+        <td>{{ user }}</td>
+      </tr>
+    </tbody>
+    
+  </table>
+</div>
+
+<div>
   
-</table>
+  <table *ngIf="books && books.length > 0; else isEmpty">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>book</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books; index as id">
+        <td>{{ id + 1 }}</td>
+        <td>{{ book }}</td>
+      </tr>
+    </tbody>
+    
+  </table>
 
-<table *ngIf="books && books.length > 0; else isEmpty">
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>book</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let book of books; index as id">
-      <td>{{ id + 1 }}</td>
-      <td>{{ book }}</td>
-    </tr>
-  </tbody>
-  
-</table>
+  <ng-template #isEmpty>
+    <div>No books available</div>
+  </ng-template>
 
-<ng-template #isEmpty>
-  <div>No books available</div>
+</div>
+
+<ng-template #notEnable>
+  <div>Sorry, this page is not available.</div>
 </ng-template>
+
 

@@ -15,4 +15,11 @@ export class AppComponent {
   users:string[] = ['Pepe', 'Maria', 'Jose'];
 
   books!: string[];
+
+  visible: boolean = false;
+
+  setVisible(): void {
+    this.visible = this.visible? false : true;
+    console.log('Clic on setVisible');
+  }
 }
