@@ -13,6 +13,8 @@ import { CounterComponent } from "./counter/counter.component";
 export class AppComponent {
   title = 'angular-getting-stared';
 
+  subTitle: string = "Counter with session state"
+ 
   users:string[] = ['Pepe', 'Maria', 'Jose'];
 
   books!: string[];
