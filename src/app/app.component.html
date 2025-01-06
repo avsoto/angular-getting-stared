@@ -2,7 +2,39 @@
   {{visible? 'Ocultar' : 'Mostrar'}}
 </button>
 
-<div *ngIf="visible; else notEnable">
+@if (visible){
+  <h2>Hi {{title}}</h2>
+
+  @if (users != undefined && users.length > 0;){
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>book</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (user of users; track $index){
+          <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ user }}</td>
+          </tr>
+        }
+        
+      </tbody>
+    </table>
+  } @else {
+    <p>No books available</p>
+  }
+} @else {
+  <p>Sorry, this page is not available.</p>
+}
+
+<app-counter></app-counter>
+
+
+
+<!-- <div *ngIf="visible; else notEnable">
   <h2>Hi {{title}}</h2>
 </div>
 
@@ -43,13 +75,12 @@
   </table>
 
   <ng-template #isEmpty>
-    <div>No books available</div>
+    <h2>No books available</h2>
   </ng-template>
 
 </div>
 
 <ng-template #notEnable>
-  <div>Sorry, this page is not available.</div>
-</ng-template>
-
+  <h2>Sorry, this page is not available.</h2>
+</ng-template> -->
 
